@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grant Form Test</title>
+</head>
+
+<body>
+    <h1>Grant Application Form</h1>
+    <form id="grantForm">
+        <fieldset>
+            <legend>Primary Contact</legend>
+            <label for="primaryContactName">Full Name:</label>
+            <input type="text" id="primaryContactName" name="PrimaryContact.Name" required><br><br>
+
+            <label for="primaryContactEmail">Email Address:</label>
+            <input type="email" id="primaryContactEmail" name="PrimaryContact.Email" required><br><br>
+
+            <label for="primaryContactPhone">Phone:</label>
+            <input type="text" id="primaryContactPhone" name="PrimaryContact.Phone" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Medical Leader</legend>
+            <label for="medicalLeaderName">Name:</label>
+            <input type="text" id="medicalLeaderName" name="MedicalLeader.Name" required><br><br>
+
+            <label for="medicalLeaderEmail">Email:</label>
+            <input type="email" id="medicalLeaderEmail" name="MedicalLeader.Email" required><br><br>
+
+            <label for="medicalLeaderPhone">Phone:</label>
+            <input type="text" id="medicalLeaderPhone" name="MedicalLeader.Phone" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Faith Leader</legend>
+            <label for="faithLeaderName">Name:</label>
+            <input type="text" id="faithLeaderName" name="FaithLeader.Name" required><br><br>
+
+            <label for="faithLeaderEmail">Email:</label>
+            <input type="email" id="faithLeaderEmail" name="FaithLeader.Email" required><br><br>
+
+            <label for="faithLeaderPhone">Phone:</label>
+            <input type="text" id="faithLeaderPhone" name="FaithLeader.Phone" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Location of Project</legend>
+            <label for="regionCity">Region and City:</label>
+            <input type="text" id="regionCity" name="Location.RegionCity" required><br><br>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="Location.Country" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Projected Impact</legend>
+            <label for="impactDirectCare">Number of people receiving direct care:</label>
+            <input type="text" id="impactDirectCare" name="Impact.DirectCare" required><br><br>
+
+            <label for="impactEducated">Number of people educated:</label>
+            <input type="text" id="impactEducated" name="Impact.Educated" required><br><br>
+
+            <label for="impactTrained">Number of people trained:</label>
+            <input type="text" id="impactTrained" name="Impact.Trained" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Project Funds</legend>
+            <label for="fundsRequested">Amount Requested:</label>
+            <input type="text" id="fundsRequested" name="Funds.Requested" required><br><br>
+
+            <label for="fundsLocal">Local Contribution:</label>
+            <input type="text" id="fundsLocal" name="Funds.Local" required><br><br>
+
+            <label for="fundsLocalDescription">Local Contribution Description (goods or money):</label>
+            <input type="text" id="fundsLocalDescription" name="Funds.LocalDescription" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Project Summary</legend>
+            <label for="summary">Describe what you and your team plan to do with your project. (Note: You can provide
+                some background details, but keep this part very brief):</label>
+            <textarea id="summary" name="Summary" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Accountability</legend>
+            <label for="accountability">Who else in the community will be able to confirm the funds were used as
+                described? What measures are in place to assure the integrity of funds?</label>
+            <textarea id="accountability" name="Accountability" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Collaboration</legend>
+            <label for="collaboration">What other organizations or groups are involved? What church is involved in the
+                project? How will the local community be engaged?</label>
+            <textarea id="collaboration" name="Collaboration" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Sustainability</legend>
+            <label for="sustainability">How will the project and its related activities continue once the grant funds
+                are gone?</label>
+            <textarea id="sustainability" name="Sustainability" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Innovation</legend>
+            <label for="innovation">What is unique about this project? (Can be an entirely new idea or just new to an
+                area):</label>
+            <textarea id="innovation" name="Innovation" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Gospel Spreading</legend>
+            <label for="gospelSpreading">How does this project advance the spreading of the Gospel?</label>
+            <textarea id="gospelSpreading" name="GospelSpreading" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <p>
+            Zero in on Zero &ndash; Please complete the form for EACH disease you plan to address in your project. You
+            will need a SEPARATE plan for each disease. You can borrow from the SMM presentations to complete this with
+            evidence-based plans, and you can add in parts to fit your culture. But, these should all be plans that can
+            be tested and verified. Remember: The Zero in on Zero plans are &ldquo;What&rdquo; you will do and not
+            &ldquo;How&rdquo; you will do it. How you will do it is your implementation plan. Remember: This is not a
+            timeline. You are deciding what needs to be done &ldquo;Before treatment&rdquo;, &ldquo;During
+            treatment&rdquo;, and &ldquo;After treatment&rdquo; Tip: Some community, education, and behavior items may
+            appear both Before and After. If you are planning on more than two diseases, you can copy one of the
+            following pages to complete your Zero in on Zero plans.
+        </p>
+
+        <fieldset>
+            <legend>Project Budget</legend>
+            <p>Please provide as much detail as you are able. For example, do not list &ldquo;medications&rdquo;.
+                Instead, list the specific kind of medication you plan to purchase. Help us understand exactly what you
+                are purchasing. Avoid general categories that do not describe what is being bought.</p>
+            <label for="budgetDetails">Name of item, Cost per item, Quantity, Total:</label>
+            <textarea id="budgetDetails" name="ProjectBudget" rows="5" required></textarea><br><br>
+        </fieldset>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</body>
+
+</html>
