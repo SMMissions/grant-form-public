@@ -2,147 +2,240 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grant Form Test</title>
+    <title>Grant Application Form - Sustainable Medical Missions</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
 </head>
 
 <body>
-    <h1>Grant Application Form</h1>
-    <form id="grantForm">
-        <fieldset>
-            <legend>Primary Contact</legend>
-            <label for="primaryContactName">Full Name:</label>
-            <input type="text" id="primaryContactName" name="PrimaryContact.Name" required><br><br>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="/">SMM Grants</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
 
-            <label for="primaryContactEmail">Email Address:</label>
-            <input type="email" id="primaryContactEmail" name="PrimaryContact.Email" required><br><br>
+            <div>
+                <h1>Grant Application Form</h1>
+                <form method="POST" action="/Home/Post">
+                    <input type="hidden" name="id">
+                    <input type="hidden" name="Year" value="2024">
+                    <fieldset class="form-group">
+                        <legend>Primary Contact</legend>
+                        <label for="PrimaryContact.Name">Name</label>
+                        <input type="text" class="form-control" id="PrimaryContact.Name" name="PrimaryContact.Name" maxlength="100">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="PrimaryContact.Email" name="PrimaryContact.Email">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" id="PrimaryContact.Phone" name="PrimaryContact.Phone">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Medical Leader</legend>
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="MedicalLeader.Name" name="MedicalLeader.Name">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="MedicalLeader.Email" name="MedicalLeader.Email">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" id="MedicalLeader.Phone" name="MedicalLeader.Phone">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Faith Leader</legend>
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="FaithLeader.Name" name="FaithLeader.Name">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="FaithLeader.Email" name="FaithLeader.Email">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" id="FaithLeader.Phone" name="FaithLeader.Phone">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Location of Project</legend>
+                        <label>Region and City</label>
+                        <input type="text" class="form-control" name="Location.RegionCity">
+                        <label>Country</label>
+                        <input type="text" class="form-control" id="Location.Country" name="Location.Country">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Projected Impact</legend>
+                        <label>Number of people receiving direct care</label>
+                        <input class="form-control" type="text" name="Impact.DirectCare">
+                        <label>Number of people educated</label>
+                        <input type="text" class="form-control" name="Impact.Educated">
+                        <label>Number of people trained</label>
+                        <input type="text" class="form-control" name="Impact.Trained">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Project Funds</legend>
+                        <label>Amount Requested</label>
+                        <input type="text" class="form-control" name="Funds.Requested">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="Funds.Local"
+                                name="Funds.Local">
+                            <label class="form-check-label" for="Funds.Local">
+                                Will there be local contribution?
+                            </label>
+                        </div>
+                        <label>
+                            Local Contribution Description (goods or money)
+                        </label>
+                        <input type="text" class="form-control" id="Funds.LocalDescription"
+                            name="Funds.LocalDescription">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Project Summary</legend>
+                        <label>
+                            Describe what you and your team plan to do with your project. (Note:
+                            You can provide some background details, but keep this part very
+                            brief)
+                            <textarea name="Summary" class="form-control" rows="5"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Accountability</legend>
+                        <label>
+                            Who else in community will be able to confirm the funds were used as
+                            described? What measures are in place to assure the integrity of
+                            funds?
+                            <textarea class="form-control" name="Accountability" rows="5"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Collaboration</legend>
+                        <label>
+                            What other organizations or groups are involved? What church is
+                            involved in the project? How will the local community be engaged?
+                            <textarea class="form-control" name="Collaboration" rows="5"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Sustainability</legend>
+                        <label>
+                            How will the project and its related activities continue once the
+                            grant funds are gone?
+                        </label>
+                        <textarea class="form-control" name="Sustainability" rows="5"></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Innovation</legend>
+                        <label>
+                            What is unique about this project? (Can be an entirely new idea or
+                            just new to an area)
+                            <textarea class="form-control" name="Innovation" rows="5"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <legend>Gospel spreading</legend>
+                        <label>How does this project advance the spreading of the Gospel?
+                            <textarea class="form-control" name="GospelSpreading" rows="5"></textarea>
+                        </label>
+                    </fieldset>
+                    <h2>Zero in on Zero</h2>
+                    <p>
+                        Please complete the form for EACH disease you plan to
+                        address in your project. You will need a SEPARATE plan for each disease.
+                        You can borrow from the SMM presentations to complete this with
+                        evidence-based plans, and you can add in parts to fit your culture. But,
+                        these should all be plans that can be tested and verified. Remember: The
+                        Zero in on Zero plans are “What” you will do and not “How” you will do
+                        it. How you will do it is your implementation plan. Remember: This is
+                        not a timeline. You are deciding what needs to be done “Before
+                        treatment”, “During treatment”, and “After treatment” Tip: Some
+                        community, education and behavior items may appear both Before and After
+                        If you are planning on more than two diseases, you can copy one of the
+                        following pages to complete your Zero in on Zero plans</p>
+                    <fieldset>
+                        <legend>Disease 1</legend>
+                        <lable>Name of Disease</lable>
+                        <input type="text" class="form-control" name="Disease1.Name">
+                        <label>Before/During/After<br></label>
+                        <textarea class="form-control" name="Disease1.BeforeDuringAfter" rows="7">Before:
 
-            <label for="primaryContactPhone">Phone:</label>
-            <input type="text" id="primaryContactPhone" name="PrimaryContact.Phone" required><br><br>
-        </fieldset>
+                            During:
 
-        <fieldset>
-            <legend>Medical Leader</legend>
-            <label for="medicalLeaderName">Name:</label>
-            <input type="text" id="medicalLeaderName" name="MedicalLeader.Name" required><br><br>
+                            After:
 
-            <label for="medicalLeaderEmail">Email:</label>
-            <input type="email" id="medicalLeaderEmail" name="MedicalLeader.Email" required><br><br>
+                        </textarea>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Disease 2</legend>
+                        <lable>Name of Disease</lable>
+                        <input type="text" class="form-control" name="Disease2.Name">
+                        <label>Before/During/After<br></label>
+                        <textarea class="form-control" name="Disease2.BeforeDuringAfter" rows="7">Before:
 
-            <label for="medicalLeaderPhone">Phone:</label>
-            <input type="text" id="medicalLeaderPhone" name="MedicalLeader.Phone" required><br><br>
-        </fieldset>
+                            During:
 
-        <fieldset>
-            <legend>Faith Leader</legend>
-            <label for="faithLeaderName">Name:</label>
-            <input type="text" id="faithLeaderName" name="FaithLeader.Name" required><br><br>
+                            After:
 
-            <label for="faithLeaderEmail">Email:</label>
-            <input type="email" id="faithLeaderEmail" name="FaithLeader.Email" required><br><br>
+                        </textarea>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Disease 3</legend>
+                        <lable>Name of Disease</lable>
+                        <input type="text" class="form-control" name="Disease3.Name">
+                        <label>Before/During/After<br></label>
+                        <textarea class="form-control" name="Disease3.BeforeDuringAfter" rows="7">Before:
 
-            <label for="faithLeaderPhone">Phone:</label>
-            <input type="text" id="faithLeaderPhone" name="FaithLeader.Phone" required><br><br>
-        </fieldset>
+                            During:
 
-        <fieldset>
-            <legend>Location of Project</legend>
-            <label for="regionCity">Region and City:</label>
-            <input type="text" id="regionCity" name="Location.RegionCity" required><br><br>
+                            After:
 
-            <label for="country">Country:</label>
-            <input type="text" id="country" name="Location.Country" required><br><br>
-        </fieldset>
+                        </textarea>
+                    </fieldset>
+                    <hr>
+                    <h2>Project Budget</h2>
+                    <p>Please provide as much detail as you are able. For example, do not list
+                        “medications”. Instead list the specific kind of medication you plan to
+                        purchase. Help us understand exactly what you are purchasing. Avoid
+                        general categories that do not describe what is being bought. (Note: You
+                        are free to use your own budget format, but is must show the same
+                        breakdown of costs per item and quantity)</p>
+                    <fieldset>
+                        <label>Details</label>
+                        <textarea class="form-control" name="ProjectBudget.Details" rows="5">Name of item Cost per item
+                            Quantity Total
+                        </textarea>
+                        <label>Grand total of all items</label>
+                        <input type="text" name="ProjectBudget.GrandTotal" class="form-control">
+                    </fieldset>
+                    <br>
+                    <p><button class="btn btn-primary" type="submit">Preview</button></p>
+                    <div style="display:none;"><input type="text" name="SubmittedName"></div>
+                </form>
+            </div>
 
-        <fieldset>
-            <legend>Projected Impact</legend>
-            <label for="impactDirectCare">Number of people receiving direct care:</label>
-            <input type="text" id="impactDirectCare" name="Impact.DirectCare" required><br><br>
+        </main>
+        <aside>
+            <div></div>
+        </aside>
+    </div>
 
-            <label for="impactEducated">Number of people educated:</label>
-            <input type="text" id="impactEducated" name="Impact.Educated" required><br><br>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            © 2021 - Sustainable Medical Missions
+        </div>
+    </footer>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
 
-            <label for="impactTrained">Number of people trained:</label>
-            <input type="text" id="impactTrained" name="Impact.Trained" required><br><br>
-        </fieldset>
 
-        <fieldset>
-            <legend>Project Funds</legend>
-            <label for="fundsRequested">Amount Requested:</label>
-            <input type="text" id="fundsRequested" name="Funds.Requested" required><br><br>
 
-            <label for="fundsLocal">Local Contribution:</label>
-            <input type="text" id="fundsLocal" name="Funds.Local" required><br><br>
-
-            <label for="fundsLocalDescription">Local Contribution Description (goods or money):</label>
-            <input type="text" id="fundsLocalDescription" name="Funds.LocalDescription" required><br><br>
-        </fieldset>
-
-        <fieldset>
-            <legend>Project Summary</legend>
-            <label for="summary">Describe what you and your team plan to do with your project. (Note: You can provide
-                some background details, but keep this part very brief):</label>
-            <textarea id="summary" name="Summary" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <fieldset>
-            <legend>Accountability</legend>
-            <label for="accountability">Who else in the community will be able to confirm the funds were used as
-                described? What measures are in place to assure the integrity of funds?</label>
-            <textarea id="accountability" name="Accountability" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <fieldset>
-            <legend>Collaboration</legend>
-            <label for="collaboration">What other organizations or groups are involved? What church is involved in the
-                project? How will the local community be engaged?</label>
-            <textarea id="collaboration" name="Collaboration" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <fieldset>
-            <legend>Sustainability</legend>
-            <label for="sustainability">How will the project and its related activities continue once the grant funds
-                are gone?</label>
-            <textarea id="sustainability" name="Sustainability" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <fieldset>
-            <legend>Innovation</legend>
-            <label for="innovation">What is unique about this project? (Can be an entirely new idea or just new to an
-                area):</label>
-            <textarea id="innovation" name="Innovation" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <fieldset>
-            <legend>Gospel Spreading</legend>
-            <label for="gospelSpreading">How does this project advance the spreading of the Gospel?</label>
-            <textarea id="gospelSpreading" name="GospelSpreading" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <p>
-            Zero in on Zero &ndash; Please complete the form for EACH disease you plan to address in your project. You
-            will need a SEPARATE plan for each disease. You can borrow from the SMM presentations to complete this with
-            evidence-based plans, and you can add in parts to fit your culture. But, these should all be plans that can
-            be tested and verified. Remember: The Zero in on Zero plans are &ldquo;What&rdquo; you will do and not
-            &ldquo;How&rdquo; you will do it. How you will do it is your implementation plan. Remember: This is not a
-            timeline. You are deciding what needs to be done &ldquo;Before treatment&rdquo;, &ldquo;During
-            treatment&rdquo;, and &ldquo;After treatment&rdquo; Tip: Some community, education, and behavior items may
-            appear both Before and After. If you are planning on more than two diseases, you can copy one of the
-            following pages to complete your Zero in on Zero plans.
-        </p>
-
-        <fieldset>
-            <legend>Project Budget</legend>
-            <p>Please provide as much detail as you are able. For example, do not list &ldquo;medications&rdquo;.
-                Instead, list the specific kind of medication you plan to purchase. Help us understand exactly what you
-                are purchasing. Avoid general categories that do not describe what is being bought.</p>
-            <label for="budgetDetails">Name of item, Cost per item, Quantity, Total:</label>
-            <textarea id="budgetDetails" name="ProjectBudget" rows="5" required></textarea><br><br>
-        </fieldset>
-
-        <button type="submit">Submit Application</button>
-    </form>
 </body>
 
 </html>
