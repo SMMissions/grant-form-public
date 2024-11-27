@@ -1,0 +1,80 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SMM Grants</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" id="home-link" href="index.html">Home</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="switch-to-en">English</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="switch-to-fr">Français</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    function setLanguage(language) {
+        const homeLink = document.getElementById('home-link');
+        if (language === 'fr') {
+            homeLink.textContent = 'Accueil'; // Set "Home" to "Accueil" in French
+            homeLink.href = 'index-fr.html';  // Update link to point to French version
+        } else {
+            homeLink.textContent = 'Home'; // Set back to "Home" in English
+            homeLink.href = 'index.html';  // Update link to point to English version
+        }
+    }
+
+    document.getElementById('switch-to-fr').addEventListener('click', function(event) {
+        event.preventDefault();
+        const currentURL = window.location.pathname;
+        let newURL = '';
+
+        // If the current page is not already French, append -fr
+        if (!currentURL.includes('-fr')) {
+            const parts = currentURL.split('.html');
+            newURL = `${parts[0]}-fr.html`;
+        } else {
+            newURL = currentURL;
+        }
+
+        // Change language to French
+        setLanguage('fr');
+        window.location.href = newURL;
+    });
+
+    document.getElementById('switch-to-en').addEventListener('click', function(event) {
+        event.preventDefault();
+        const currentURL = window.location.pathname;
+
+        // Remove -fr from the page name to switch to English
+        if (currentURL.includes('-fr')) {
+            const newURL = currentURL.replace('-fr', '');
+            setLanguage('en');
+            window.location.href = newURL;
+        } else {
+            window.location.href = currentURL;
+        }
+    });
+
+    // Set initial language based on current URL
+    window.addEventListener('DOMContentLoaded', function() {
+        if (window.location.pathname.includes('-fr')) {
+            setLanguage('fr');
+        } else {
+            setLanguage('en');
+        }
+    });
+</script>
