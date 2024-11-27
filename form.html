@@ -33,64 +33,63 @@
 
             <div>
                 <h1>Grant Application Form</h1>
-                <form method="POST" action="/Home/Post">
-                    <input type="hidden" name="id">
-                    <input type="hidden" name="Year" value="2024">
+                <form method="POST" action="/Home/Post" id="grantForm">
                     <fieldset class="form-group">
                         <legend>Primary Contact</legend>
                         <label for="PrimaryContact.Name">Name</label>
-                        <input type="text" class="form-control" id="PrimaryContact.Name" name="PrimaryContact.Name" maxlength="100">
-                        <label>Email</label>
-                        <input type="email" class="form-control" id="PrimaryContact.Email" name="PrimaryContact.Email">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" id="PrimaryContact.Phone" name="PrimaryContact.Phone">
+                        <input type="text" class="form-control" id="PrimaryContact.Name" name="PrimaryContact.Name" />
+                        <label for="PrimaryContact.Email">Email</label>
+                        <input type="email" class="form-control" id="PrimaryContact.Email" name="PrimaryContact.Email" />
+                        <label for="PrimaryContact.Phone">Phone</label>
+                        <input type="text" class="form-control" id="PrimaryContact.Phone" name="PrimaryContact.Phone" />
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Medical Leader</legend>
-                        <label>Name</label>
+                        <label for="MedicalLeader.Name">Name</label>
                         <input type="text" class="form-control" id="MedicalLeader.Name" name="MedicalLeader.Name">
-                        <label>Email</label>
+                        <label for="MedicalLeader.Email">Email</label>
                         <input type="email" class="form-control" id="MedicalLeader.Email" name="MedicalLeader.Email">
-                        <label>Phone</label>
+                        <label for="MedicalLeader.Phone">Phone</label>
                         <input type="text" class="form-control" id="MedicalLeader.Phone" name="MedicalLeader.Phone">
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Faith Leader</legend>
-                        <label>Name</label>
+                        <label for="FaithLeader.Name">Name</label>
                         <input type="text" class="form-control" id="FaithLeader.Name" name="FaithLeader.Name">
-                        <label>Email</label>
+                        <label for="FaithLeader.Email">Email</label>
                         <input type="email" class="form-control" id="FaithLeader.Email" name="FaithLeader.Email">
-                        <label>Phone</label>
+                        <label for="FaithLeader.Phone">Phone</label>
                         <input type="text" class="form-control" id="FaithLeader.Phone" name="FaithLeader.Phone">
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Location of Project</legend>
-                        <label>Region and City</label>
-                        <input type="text" class="form-control" name="Location.RegionCity">
-                        <label>Country</label>
+                        <label for="Location.RegionCity">Region/City</label>
+                        <input type="text" class="form-control" name="Location.RegionCity" id="Location.RegionCity">
+                        <label for="Location.Country">Country</label>
                         <input type="text" class="form-control" id="Location.Country" name="Location.Country">
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Projected Impact</legend>
-                        <label>Number of people receiving direct care</label>
-                        <input class="form-control" type="text" name="Impact.DirectCare">
-                        <label>Number of people educated</label>
-                        <input type="text" class="form-control" name="Impact.Educated">
-                        <label>Number of people trained</label>
-                        <input type="text" class="form-control" name="Impact.Trained">
+                        <!-- <label>Number of people receiving direct care</label> -->
+                        <label for="Impact.DirectCare">Number of people receiving direct care</label>
+                        <input class="form-control" type="text" name="Impact.DirectCare" id="Impact.DirectCare">
+                        <label for="Impact.Educated">Number of people educated</label>
+                        <input type="text" class="form-control" name="Impact.Educated" id="Impact.Educated">
+                        <label for="Impact.Trained">Number of people trained</label>
+                        <input type="text" class="form-control" name="Impact.Trained" id="Impact.Trained">
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Project Funds</legend>
-                        <label>Amount Requested</label>
-                        <input type="text" class="form-control" name="Funds.Requested">
+                        <label for="Funds.Requested">Amount requested</label>
+                        <input type="text" class="form-control" name="Funds.Requested" id="Funds.Requested">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="true" id="Funds.Local"
-                                name="Funds.Local">
+                                name="Funds.Local" />
                             <label class="form-check-label" for="Funds.Local">
                                 Will there be local contribution?
                             </label>
                         </div>
-                        <label>
+                        <label for="Funds.LocalDescription">
                             Local Contribution Description (goods or money)
                         </label>
                         <input type="text" class="form-control" id="Funds.LocalDescription"
@@ -127,8 +126,8 @@
                         <label>
                             How will the project and its related activities continue once the
                             grant funds are gone?
+                            <textarea class="form-control" name="Sustainability" rows="5"></textarea>
                         </label>
-                        <textarea class="form-control" name="Sustainability" rows="5"></textarea>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Innovation</legend>
@@ -158,46 +157,48 @@
                         community, education and behavior items may appear both Before and After
                         If you are planning on more than two diseases, you can copy one of the
                         following pages to complete your Zero in on Zero plans</p>
-                    <fieldset>
-                        <legend>Disease 1</legend>
-                        <lable>Name of Disease</lable>
-                        <input type="text" class="form-control" name="Disease1.Name">
-                        <label>Before/During/After<br></label>
-                        <textarea class="form-control" name="Disease1.BeforeDuringAfter" rows="7">Before:
+                        <div id="disease-container">
+                            <fieldset class="disease-fieldset">
+                                <legend>Disease 1</legend>
+                                <label class="w-100">Name of Disease
+                                    <br/>
+                                    <input type="text" class="form-control" name="Disease1.Name">
+                                </label>
+                                <br/>
+                                <textarea class="form-control" name="Disease1.BeforeDuringAfter" rows="7">Before:
 
-                            During:
+During:
 
-                            After:
+After:</textarea>
+<br/>
+                            </fieldset>
+                        </div>
 
-                        </textarea>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Disease 2</legend>
-                        <lable>Name of Disease</lable>
-                        <input type="text" class="form-control" name="Disease2.Name">
-                        <label>Before/During/After<br></label>
-                        <textarea class="form-control" name="Disease2.BeforeDuringAfter" rows="7">Before:
+                        <button type="button" id="add-disease-button" class="btn btn-secondary mt-3">Add Another Disease</button>
+                        <script>
+                            document.getElementById('add-disease-button').addEventListener('click', function() {
+                                // Get the container div
+                                const container = document.getElementById('disease-container');
 
-                            During:
+                                // Clone the existing fieldset
+                                const originalFieldset = container.querySelector('.disease-fieldset');
+                                const newFieldset = originalFieldset.cloneNode(true);
 
-                            After:
+                                // Update field names to ensure unique names for each disease
+                                const fieldsetCount = container.getElementsByClassName('disease-fieldset').length + 1;
+                                newFieldset.querySelector('legend').innerText = `Disease ${fieldsetCount}`;
+                                newFieldset.querySelector('input').name = `Disease${fieldsetCount}.Name`;
+                                newFieldset.querySelector('textarea').name = `Disease${fieldsetCount}.BeforeDuringAfter`;
 
-                        </textarea>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Disease 3</legend>
-                        <lable>Name of Disease</lable>
-                        <input type="text" class="form-control" name="Disease3.Name">
-                        <label>Before/During/After<br></label>
-                        <textarea class="form-control" name="Disease3.BeforeDuringAfter" rows="7">Before:
+                                // Clear input and textarea values
+                                newFieldset.querySelector('input').value = '';
+                                newFieldset.querySelector('textarea').value = 'Before:\n\nDuring:\n\nAfter:';
 
-                            During:
-
-                            After:
-
-                        </textarea>
-                    </fieldset>
-                    <hr>
+                                // Append the new fieldset to the container
+                                container.appendChild(newFieldset);
+                            });
+                        </script>
+                                            <hr>
                     <h2>Project Budget</h2>
                     <p>Please provide as much detail as you are able. For example, do not list
                         “medications”. Instead list the specific kind of medication you plan to
@@ -205,15 +206,84 @@
                         general categories that do not describe what is being bought. (Note: You
                         are free to use your own budget format, but is must show the same
                         breakdown of costs per item and quantity)</p>
-                    <fieldset>
-                        <label>Details</label>
-                        <textarea class="form-control" name="ProjectBudget.Details" rows="5">Name of item Cost per item
-                            Quantity Total
-                        </textarea>
-                        <label>Grand total of all items</label>
-                        <input type="text" name="ProjectBudget.GrandTotal" class="form-control">
-                    </fieldset>
-                    <br>
+                            <fieldset class="form-group">
+                                <legend>Project Budget Items</legend>
+                                <div id="budget-container">
+                                    <div class="budget-item form-group">
+                                        <input type="text" class="form-control mb-2" name="ProjectBudget.Item1.Name" placeholder="Enter item name">
+                                        <input type="number" class="form-control mb-2" name="ProjectBudget.Item1.Cost" placeholder="Enter cost per item">
+                                        <input type="number" class="form-control mb-2" name="ProjectBudget.Item1.Quantity" placeholder="Enter quantity">
+                                        <input type="number" class="form-control mb-3" name="ProjectBudget.Item1.Total" placeholder="Total cost" readonly>
+                                    </div>
+                                </div>
+                                <button type="button" id="add-budget-item-button" class="btn btn-secondary mt-3">Add Another Item</button>
+                            </fieldset>
+
+                            <fieldset class="form-group">
+                                <label for="ProjectBudget.GrandTotal">Grand total of all items</label>
+                                <input type="number" id="ProjectBudget.GrandTotal" name="ProjectBudget.GrandTotal" class="form-control" readonly>
+                            </fieldset>
+
+                        <script>
+                            document.getElementById('add-budget-item-button').addEventListener('click', function() {
+                                // Get the container div
+                                const container = document.getElementById('budget-container');
+
+                                // Clone the existing budget item
+                                const originalItem = container.querySelector('.budget-item');
+                                const newItem = originalItem.cloneNode(true);
+
+                                // Update input names to ensure uniqueness
+                                const itemCount = container.getElementsByClassName('budget-item').length + 1;
+                                newItem.querySelectorAll('input').forEach((input) => {
+                                    const nameParts = input.name.split('.');
+                                    nameParts[1] = `Item${itemCount}`;
+                                    input.name = nameParts.join('.');
+                                    input.id = nameParts.join('.'); // Update the id to match the new name
+                                    input.value = '';
+                                });
+
+                                // Add delete button to the new item
+                                if (!newItem.querySelector('.delete-item-button')) {
+                                    const deleteButton = document.createElement('button');
+                                    deleteButton.type = 'button';
+                                    deleteButton.className = 'btn btn-danger mt-2 delete-item-button';
+                                    deleteButton.textContent = 'Delete Item';
+                                    deleteButton.addEventListener('click', function() {
+                                        newItem.remove();
+                                        updateGrandTotal();
+                                    });
+                                    newItem.appendChild(deleteButton);
+                                }
+
+                                // Append the new item to the container
+                                container.appendChild(newItem);
+                            });
+
+                            // Calculate the grand total whenever an item's cost or quantity changes
+                            document.getElementById('grantForm').addEventListener('input', function(event) {
+                                if (event.target.matches('[name$=".Cost"]') || event.target.matches('[name$=".Quantity"]')) {
+                                    const budgetItem = event.target.closest('.budget-item');
+                                    const cost = parseFloat(budgetItem.querySelector('[name$=".Cost"]').value) || 0;
+                                    const quantity = parseFloat(budgetItem.querySelector('[name$=".Quantity"]').value) || 0;
+                                    const total = budgetItem.querySelector('[name$=".Total"]');
+                                    total.value = (cost * quantity).toFixed(2);
+                                }
+                                updateGrandTotal();
+                            });
+
+                            function updateGrandTotal() {
+                                let grandTotal = 0;
+                                document.querySelectorAll('[name$=".Total"]').forEach((totalInput) => {
+                                    const value = parseFloat(totalInput.value);
+                                    if (!isNaN(value)) {
+                                        grandTotal += value;
+                                    }
+                                });
+                                document.getElementById('ProjectBudget.GrandTotal').value = grandTotal.toFixed(2);
+                            }
+                        </script>
+                                                <br>
                     <p><button class="btn btn-primary" type="submit">Preview</button></p>
                     <div style="display:none;"><input type="text" name="SubmittedName"></div>
                 </form>
